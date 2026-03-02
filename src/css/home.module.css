@@ -1,0 +1,35 @@
+.container {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    min-height: 100svh;
+    min-width: 240px;
+}
+
+.content {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card {
+    background: darkslategrey;
+    padding: 2rem 0;
+    border-radius: 10px;
+    margin: 0 1rem;
+    max-width: 552px;
+    width: 100%;
+}
+
+.role {
+    color: rgb(255, 238, 0);
+}
+
+.logoutButton {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}

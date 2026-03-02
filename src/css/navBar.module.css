@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    background: var(--secondary-color);
+    padding: 1rem;
+}
+
+.btns {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btns a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+button {
+    font-size: 16px;
+    border: none;
+    background: none;
+}
+
+.btns a:hover,
+.btns button:hover {
+    color: var(--accent-color);
+}
