@@ -11,7 +11,7 @@ const ResetPassword = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post(`http://localhost:5000/api/reset-password/${token}`, { password });
+            await axios.post(`${import.meta.env.VITE_API_URL_RESET}/${token}`, { password });
             toast.success('Éxito', 'Contraseña cambiada', 'success');
             
             navigate('/'); // Volver al login
