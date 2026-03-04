@@ -1,25 +1,28 @@
-export const verifyEmail = (email) => {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!email) return "Email is required";
-    if (!regex.test(email)) return "Invalid email format";
-    return null;
-};
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
-export const verifyPassword = (password) => {
-    // Al menos 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial
-    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    if (!password) return "Password is required";
-    if (password.length < 8) return "It must have at least 8 characters";
-    if (!regex.test(password)) return "It must include uppercase letters, lowercase letters, numbers, and special characters";
-    return null;
-};
 
-export const verifyNumbers = (value) => {
-    if (!/^\d+$/.test(value)) return "Only numbers are allowed";
-    return null;
-};
+export const validateLoginForm = (email, password) => {
+    const errors = {};
 
-export const verifyTextOnly = (text) => {
-    if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(text)) return "Only letters are allowed";
-    return null;
+    // Validación de Email
+    if (!email) {
+        errors.email = "Email is required";
+    } else if (!emailRegex.test(email)) {
+        errors.email = "Invalid email format";
+    }
+
+    // Validación de Password
+    if (!password) {
+        errors.password = "Password is required";
+    } else if (password.length < 8) {
+        errors.password = "It must have at least 8 characters";
+    } else if (!passwordRegex.test(password)) {
+        errors.password = "It must include uppercase letters, lowercase letters, numbers, and special characters";
+    }
+
+    return {
+        isValid: Object.keys(errors).length === 0,
+        errors
+    };
 };
