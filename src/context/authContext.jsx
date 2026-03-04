@@ -1,10 +1,7 @@
-import { createContext, useState, useContext } from 'react';
+import { createContext, useState, useContext, useMemo, useCallback } from 'react';
 
 // contexto
 const AuthContext = createContext();
-
-// Hook para usar el contexto 
-export const useAuth = () => useContext(AuthContext);
 
 // Provider que envuelve la app
 export const AuthProvider = ({ children }) => {
@@ -15,24 +12,35 @@ export const AuthProvider = ({ children }) => {
         return savedUser && savedToken ? { user: JSON.parse(savedUser), token: savedToken } : null;
     });
 
-    const login = (userData) => {
-        setUserData(userData);
-        localStorage.setItem('token', userData.token);
-        localStorage.setItem('user', JSON.stringify(userData.user));
-    };
+    const login = useCallback((data) => {
+        setUserData(data);
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('user', JSON.stringify(data.user));
+    }, []);
 
-    const logout = () => {
+    const logout = useCallback(() => {
         setUserData(null);
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
-    };
+        localStorage.clear();
+    }, []);
 
-    const isAuthenticated = !!userData;
 
+    // Evitamos re-renders innecesarios en los consumidores del context con useMemo
+    const data = useMemo(() => ({
+        userData,
+        isAuthenticated: !!userData,
+        login,
+        logout
+    }), [userData, login, logout]);
 
     return (
-        <AuthContext.Provider value={{ userData, login, logout, isAuthenticated }}>
+        <AuthContext.Provider value={data}>
             {children}
-        </AuthContext.Provider>
-    );
+        </AuthContext.Provider>)
+};
+
+// Hook para usar el contexto
+export const useAuth = () => {
+    const context = useContext(AuthContext);
+    if (!context) throw new Error("there is no context");
+    return context;
 };
