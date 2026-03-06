@@ -1,0 +1,38 @@
+.cta_section {
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.white {
+  background-color: #fff;
+}
+
+.carousel {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 10px;
+}
+
+.carousel_item {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.carousel_item img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+}
+
+.carousel_item:hover {
+  transform: scale(1.05);
+}

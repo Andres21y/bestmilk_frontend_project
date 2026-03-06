@@ -1,0 +1,68 @@
+.footer_section {
+  background-color: #1e1e2f;
+  color: #fff;
+  padding: 40px 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.col {
+  flex: 1 1 200px;
+}
+
+.brand_logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.section_title {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.link_list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.link {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: #3ea4f7;
+}
+
+.divider {
+  height: 1px;
+  background-color: #555;
+  margin: 20px 0;
+}
+
+.footer_copyright {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.copy_text {
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+.responsive_img {
+  max-width: 150px;
+  height: auto;
+}
