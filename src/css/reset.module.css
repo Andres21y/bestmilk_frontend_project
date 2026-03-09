@@ -30,7 +30,7 @@
     position: relative;
 }
 
-form {
+.form {
     gap: 1rem;
     display: inline-grid;
 }
