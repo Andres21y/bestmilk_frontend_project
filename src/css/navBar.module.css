@@ -1,12 +1,8 @@
 .container {
-    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
-    background: var(--secondary-color);
     padding: 1rem;
     width: 100%;
-    position: fixed;
-    z-index: 999;
 }
 
 .btns {
