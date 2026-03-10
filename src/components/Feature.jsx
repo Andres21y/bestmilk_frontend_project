@@ -38,13 +38,17 @@ const Feature = () => {
 
     return (
         <section className={styles.feature_section}>
-            {features.map((feature, index) => (
-                <article key={index} className={styles.feature_card}>
-                    {feature.icon}
-                    <h5 className={styles.feature_title}>{feature.title}</h5>
-                    <p className={styles.feature_description}>{feature.description}</p>
-                </article>
-            ))}
+
+
+                {features.map((feature, index) => (
+                    <article key={index} className={styles.feature_card}>
+                        {feature.icon}
+                        <h5 className={styles.feature_title}>{feature.title}</h5>
+                        <p className={styles.feature_description}>{feature.description}</p>
+                    </article>
+                ))}
+
+
         </section>
 
     )

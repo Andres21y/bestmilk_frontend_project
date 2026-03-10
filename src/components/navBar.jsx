@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import styles from "../css/navBar.module.css";
+import styles from "../css/navbar.module.css";
 import logo from '../assets/best_milk_main.png';
 import { MdHome } from "react-icons/md";
 

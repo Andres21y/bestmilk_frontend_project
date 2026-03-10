@@ -31,7 +31,7 @@ function Footer({ config = {} }) {
                 ]
             }
         ],
-        copyright = "© 2025 Bestmilk. Todos los derechos reservados - grupo A."
+        copyright = "© 2025 Bestmilk. Todos los derechos reservados - grupo A - 3070454 - SENA"
     } = config;
 
     return (

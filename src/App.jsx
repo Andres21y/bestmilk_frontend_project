@@ -42,7 +42,7 @@ function App() {
         </Router>
       </AuthProvider >
 
-      <ToastContainer position="top-left" autoClose={3000} />
+     {/*<ToastContainer position="top-left" autoClose={3000} /> */}
     </>
   )
 }

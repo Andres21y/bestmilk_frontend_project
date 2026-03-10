@@ -1,4 +1,5 @@
 import { createContext, useState, useContext, useMemo, useCallback } from 'react';
+import axios from 'axios';
 
 // contexto
 const AuthContext = createContext();
@@ -24,10 +25,11 @@ export const AuthProvider = ({ children }) => {
     }, []);
 
     const signup = useCallback(async (formData) => {
+        
         try {
             // Hacemos la petición al backend
-            const response = await axios.post(`${import.meta.env.VITE_API_URL}/register`, formData);
-
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/signup`, formData);
+            
             // OPCIONAL: Si tu backend loguea al usuario automáticamente tras registrarse:
             if (response.data.token && response.data.user) {
                 login(response.data);
